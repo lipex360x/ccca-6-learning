@@ -19,7 +19,10 @@
   "eslintConfig": {
     "extends": [
       "@lipex360-ui/eslint-config"
-    ]
+    ],
+    "rules": {
+      "no-new": "off"
+    }
   },
   "dependencies": {
     "pg-promise": "^11.5.4"
