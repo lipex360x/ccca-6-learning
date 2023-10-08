@@ -1,3 +1,5 @@
+import timekeeper from 'timekeeper'
+
 import { Coupon } from '@/before/2/Coupon'
 import { Item } from '@/before/2/Item'
 import { Order } from '@/before/2/Order'
@@ -11,23 +13,98 @@ describe('Order', () => {
     const document = '082.991.486-26'
     const order = new Order(document)
 
-    order.addItem(new Item(1, 'Guitarra', 1000), 1)
-    order.addItem(new Item(2, 'Amplificador', 5000), 1)
-    order.addItem(new Item(3, 'Cabo', 30), 3)
+    order.addItem(
+      new Item({
+        idItem: 1,
+        description: 'Guitarra',
+        price: 1000,
+        width: 200,
+        height: 30,
+        depth: 10,
+        weight: 3,
+      }),
+      1,
+    )
+
+    order.addItem(
+      new Item({
+        idItem: 1,
+        description: 'Amplificador',
+        price: 5000,
+        width: 200,
+        height: 30,
+        depth: 10,
+        weight: 3,
+      }),
+      1,
+    )
+
+    order.addItem(
+      new Item({
+        idItem: 1,
+        description: 'Cabo',
+        price: 30,
+        width: 200,
+        height: 30,
+        depth: 10,
+        weight: 3,
+      }),
+      3,
+    )
 
     const total = order.getTotal()
     expect(total).toBe(6090)
   })
 
   it('deve criar um pedido com cupom de desconto', () => {
+    timekeeper.freeze(new Date('2023-01-01'))
+
     const document = '082.991.486-26'
     const order = new Order(document)
 
-    order.addItem(new Item(1, 'Guitarra', 1000), 1)
-    order.addItem(new Item(2, 'Amplificador', 5000), 1)
-    order.addItem(new Item(3, 'Cabo', 30), 3)
+    order.addItem(
+      new Item({
+        idItem: 1,
+        description: 'Guitarra',
+        price: 1000,
+        width: 200,
+        height: 30,
+        depth: 10,
+        weight: 3,
+      }),
+      1,
+    )
 
-    order.addCoupon(new Coupon('VALE20', 20))
+    order.addItem(
+      new Item({
+        idItem: 1,
+        description: 'Amplificador',
+        price: 5000,
+        width: 200,
+        height: 30,
+        depth: 10,
+        weight: 3,
+      }),
+      1,
+    )
+
+    order.addItem(
+      new Item({
+        idItem: 1,
+        description: 'Cabo',
+        price: 30,
+        width: 200,
+        height: 30,
+        depth: 10,
+        weight: 3,
+      }),
+      3,
+    )
+
+    // order.addItem(new Item(2, 'Amplificador', 5000), 1)
+    // order.addItem(new Item(3, 'Cabo', 30), 3)
+
+    order.addCoupon(new Coupon('VALE20', 20, new Date('2023-02-01')))
 
     const total = order.getTotal()
     expect(total).toBe(4872)
