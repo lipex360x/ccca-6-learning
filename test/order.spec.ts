@@ -1,5 +1,5 @@
-import { Order } from '@/before/order'
-import { OrderItem } from '@/before/order-item'
+import { Order } from '@/before/1/order'
+import { OrderItem } from '@/before/1/order-item'
 
 it('deve criar um pedido com 3 itens', () => {
   const document = '082.991.486-26'

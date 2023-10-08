@@ -1,4 +1,4 @@
-import { validateCpf } from '@/before/validate-cpf'
+import { validateCpf } from '@/before/1/validate-cpf'
 
 describe('CPF', () => {
   test.each([['935.411.347-80'], ['357.188.378-05'], ['987.654.321-00']])(
