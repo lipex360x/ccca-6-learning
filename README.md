@@ -1,0 +1,1 @@
+SRP - Deve separar coisas que mudam por motivos diferentes

@@ -1,6 +1,6 @@
 import timekeeper from 'timekeeper'
 
-import { Coupon } from '@/before/2/Coupon'
+import { Coupon } from '@/before/Coupon'
 
 describe('Coupon', () => {
   afterEach(() => {

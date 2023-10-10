@@ -1,4 +1,4 @@
-import Cpf from '@/before/2/Cpf'
+import Cpf from '@/after/Cpf'
 
 describe('Cpf', () => {
   test('Deve validar um cpf válido', function () {

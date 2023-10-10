@@ -1,5 +1,5 @@
-import { Freight } from '@/before/2/Freight'
-import { Item } from '@/before/2/Item'
+import { Freight } from '@/before/Freight'
+import { Item } from '@/before/Item'
 
 describe('Freight', () => {
   test('Deve calcular o valor do frete com base nas dimensões', () => {

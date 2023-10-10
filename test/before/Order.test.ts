@@ -1,8 +1,8 @@
 import timekeeper from 'timekeeper'
 
-import { Coupon } from '@/before/2/Coupon'
-import { Item } from '@/before/2/Item'
-import { Order } from '@/before/2/Order'
+import { Coupon } from '@/before/Coupon'
+import { Item } from '@/before/Item'
+import { Order } from '@/before/Order'
 
 describe('Order', () => {
   it('não deve criar um pedido com CPF inválido', () => {
@@ -100,9 +100,6 @@ describe('Order', () => {
       }),
       3,
     )
-
-    // order.addItem(new Item(2, 'Amplificador', 5000), 1)
-    // order.addItem(new Item(3, 'Cabo', 30), 3)
 
     order.addCoupon(new Coupon('VALE20', 20, new Date('2023-02-01')))
 
