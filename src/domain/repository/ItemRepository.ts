@@ -1,4 +1,4 @@
-import type { Item } from './Item'
+import type { Item } from '../entity/Item'
 
 export interface ItemRepository {
   get(idItem: number): Promise<Item>

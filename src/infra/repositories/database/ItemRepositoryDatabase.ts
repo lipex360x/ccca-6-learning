@@ -1,6 +1,7 @@
-import type { Connection } from './Connection'
-import { Item } from './Item'
-import type { ItemRepository } from './ItemRepository'
+import { Item } from '@/domain/entity/Item'
+import type { ItemRepository } from '@/domain/repository/ItemRepository'
+
+import type { Connection } from '../../database/Connection'
 
 export class ItemRepositoryDatabase implements ItemRepository {
   constructor(readonly connection: Connection) {}

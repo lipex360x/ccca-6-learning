@@ -1,8 +1,8 @@
-import { Dimensions } from '@/after/Dimensions'
-import { Item } from '@/after/Item'
-import { ItemRepositoryMemory } from '@/after/ItemRepositoryMemory'
-import { OrderRepositoryMemory } from '@/after/OrderRepositoryMemory'
-import { PlaceOrder } from '@/after/PlaceOrder'
+import { PlaceOrder } from '@/application/PlaceOrder'
+import { Dimensions } from '@/domain/entity/Dimensions'
+import { Item } from '@/domain/entity/Item'
+import { ItemRepositoryMemory } from '@/infra/repositories/memory/ItemRepositoryMemory'
+import { OrderRepositoryMemory } from '@/infra/repositories/memory/OrderRepositoryMemory'
 
 describe('PlaceOrder', () => {
   it('Deve fazer um pedido', async () => {

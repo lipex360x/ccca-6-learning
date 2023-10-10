@@ -1,5 +1,5 @@
-import { ItemRepositoryDatabase } from '@/after/ItemRepositoryDatabase'
-import { PgPromiseConnectionAdapter } from '@/after/PgPromiseConnectionAdapter'
+import { PgPromiseConnectionAdapter } from '@/infra/database/PgPromiseConnectionAdapter'
+import { ItemRepositoryDatabase } from '@/infra/repositories/database/ItemRepositoryDatabase'
 
 describe('ItemRepositoryDatabase', () => {
   it('Deve retornar itens do banco de dados', async () => {

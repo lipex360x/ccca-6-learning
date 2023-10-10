@@ -1,7 +1,7 @@
-import { Coupon } from '@/after/Coupon'
-import { Dimensions } from '@/after/Dimensions'
-import { Item } from '@/after/Item'
-import { Order } from '@/after/Order'
+import { Coupon } from '@/domain/entity/Coupon'
+import { Dimensions } from '@/domain/entity/Dimensions'
+import { Item } from '@/domain/entity/Item'
+import { Order } from '@/domain/entity/Order'
 
 describe('Order', () => {
   it('não deve criar um pedido com CPF inválido', () => {

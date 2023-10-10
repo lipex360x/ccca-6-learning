@@ -1,4 +1,4 @@
-import { Dimensions } from '@/after/Dimensions'
+import { Dimensions } from '@/domain/entity/Dimensions'
 
 describe('Dimensions', () => {
   it('Deve criar as dimensões', async () => {

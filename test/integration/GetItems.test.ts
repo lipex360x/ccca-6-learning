@@ -1,7 +1,7 @@
-import { Dimensions } from '@/after/Dimensions'
-import { GetItems } from '@/after/GetItems'
-import { Item } from '@/after/Item'
-import { ItemRepositoryMemory } from '@/after/ItemRepositoryMemory'
+import { GetItems } from '@/application/GetItems'
+import { Dimensions } from '@/domain/entity/Dimensions'
+import { Item } from '@/domain/entity/Item'
+import { ItemRepositoryMemory } from '@/infra/repositories/memory/ItemRepositoryMemory'
 
 describe('GetItems', () => {
   it('Deve buscar os itens', async () => {

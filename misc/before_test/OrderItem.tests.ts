@@ -1,4 +1,4 @@
-import { OrderItem } from '@/before/OrderItem'
+import { OrderItem } from 'misc/before/OrderItem'
 
 test('Deve criar um item de pedido', function () {
   const orderItem = new OrderItem(1, 1000, 2)

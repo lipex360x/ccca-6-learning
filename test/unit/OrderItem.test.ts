@@ -1,4 +1,4 @@
-import { OrderItem } from '@/after/OrderItem'
+import { OrderItem } from '@/domain/entity/OrderItem'
 
 describe('OrderItem', () => {
   test('Deve criar um item de pedido', function () {

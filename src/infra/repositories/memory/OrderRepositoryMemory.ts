@@ -1,5 +1,5 @@
-import type { Order } from './Order'
-import type { OrderRepository } from './OrderRepository'
+import type { Order } from '@/domain/entity/Order'
+import type { OrderRepository } from '@/domain/repository/OrderRepository'
 
 export class OrderRepositoryMemory implements OrderRepository {
   orders: Order[]

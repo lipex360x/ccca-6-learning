@@ -1,6 +1,6 @@
-import type { ItemRepository } from './ItemRepository'
-import { Order } from './Order'
-import type { OrderRepository } from './OrderRepository'
+import { Order } from '../domain/entity/Order'
+import type { ItemRepository } from '../domain/repository/ItemRepository'
+import type { OrderRepository } from '../domain/repository/OrderRepository'
 
 type InputDTO = {
   document: string

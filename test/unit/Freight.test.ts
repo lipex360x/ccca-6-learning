@@ -1,6 +1,6 @@
-import { Dimensions } from '@/after/Dimensions'
-import { Freight } from '@/after/Freight'
-import { Item } from '@/after/Item'
+import { Dimensions } from '@/domain/entity/Dimensions'
+import { Freight } from '@/domain/entity/Freight'
+import { Item } from '@/domain/entity/Item'
 
 describe('Freight', () => {
   it('Deve calcular o frete', async () => {

@@ -1,8 +1,8 @@
 import timekeeper from 'timekeeper'
 
-import { Coupon } from '@/before/Coupon'
-import { Item } from '@/before/Item'
-import { Order } from '@/before/Order'
+import { Coupon } from 'misc/before/Coupon'
+import { Item } from 'misc/before/Item'
+import { Order } from 'misc/before/Order'
 
 describe('Order', () => {
   it('não deve criar um pedido com CPF inválido', () => {

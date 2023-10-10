@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant'
 
-import type { Item } from './Item'
-import type { ItemRepository } from './ItemRepository'
+import type { Item } from '@/domain/entity/Item'
+import type { ItemRepository } from '@/domain/repository/ItemRepository'
 
 export class ItemRepositoryMemory implements ItemRepository {
   items: Item[]

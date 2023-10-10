@@ -1,4 +1,4 @@
-import { Coupon } from '@/after/Coupon'
+import { Coupon } from '@/domain/entity/Coupon'
 
 describe('Coupon', () => {
   test('Deve criar um cupom', function () {

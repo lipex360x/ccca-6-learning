@@ -1,7 +1,7 @@
-import { ElysiaAdapter } from './after/ElysiaAdapter'
-import { GetItems } from './after/GetItems'
-import { ItemRepositoryDatabase } from './after/ItemRepositoryDatabase'
-import { PgPromiseConnectionAdapter } from './after/PgPromiseConnectionAdapter'
+import { GetItems } from './application/GetItems'
+import { PgPromiseConnectionAdapter } from './infra/database/PgPromiseConnectionAdapter'
+import { ElysiaAdapter } from './infra/http/ElysiaAdapter'
+import { ItemRepositoryDatabase } from './infra/repositories/database/ItemRepositoryDatabase'
 
 const http = new ElysiaAdapter()
 

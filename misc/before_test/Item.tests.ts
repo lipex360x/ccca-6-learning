@@ -1,4 +1,4 @@
-import { Item } from '@/before/Item'
+import { Item } from 'misc/before/Item'
 
 describe('Item', () => {
   it('deve criar um novo item', () => {
