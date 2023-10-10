@@ -9,7 +9,8 @@ describe('Order', () => {
   })
 
   it('deve criar um pedido com 3 itens', () => {
-    const document = '082.991.486-26'
+    const document = '935.411.347.80'
+
     const order = new Order(document)
 
     order.addItem(new Item(1, 'Guitarra', 1000), 1)
@@ -21,7 +22,8 @@ describe('Order', () => {
   })
 
   it('deve criar um pedido com cupom de desconto', () => {
-    const document = '082.991.486-26'
+    const document = '935.411.347.80'
+
     const order = new Order(document)
 
     order.addItem(new Item(1, 'Guitarra', 1000), 1)
@@ -35,7 +37,8 @@ describe('Order', () => {
   })
 
   it('deve criar um pedido com cupom de desconto expirado', () => {
-    const document = '082.991.486-26'
+    const document = '935.411.347.80'
+
     const order = new Order(document, new Date('2023-10-10T10:00:00'))
 
     order.addItem(new Item(1, 'Guitarra', 1000), 1)
@@ -49,7 +52,8 @@ describe('Order', () => {
   })
 
   it('deve criar um pedido com 3 itens e calcular o frete', () => {
-    const document = '082.991.486-26'
+    const document = '935.411.347.80'
+
     const order = new Order(document)
 
     order.addItem(
