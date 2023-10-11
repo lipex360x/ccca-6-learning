@@ -2,19 +2,23 @@ import type { Coupon } from './Coupon'
 import Cpf from './Cpf'
 import { Freight } from './Freight'
 import type { Item } from './Item'
+import { OrderCode } from './OrderCode'
 import { OrderItem } from './OrderItem'
 
 export class Order {
   private orderItems: OrderItem[] = []
   private coupon?: Coupon
   private freight = new Freight()
+  code: OrderCode
 
   constructor(
     readonly document: string,
     private readonly date: Date = new Date(),
+    readonly sequence: number = 1,
   ) {
     new Cpf(document)
     this.orderItems = []
+    this.code = new OrderCode(date, sequence)
   }
 
   addItem(item: Item, quantity: number) {

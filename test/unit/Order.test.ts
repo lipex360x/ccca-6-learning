@@ -72,4 +72,12 @@ describe('Order', () => {
     expect(total).toBe(6350)
     expect(freight).toBe(260)
   })
+
+  it('deve criar um pedido com 3 itens e gerar um código seguindo o padrão AAAAPPPPPPPP', () => {
+    const document = '935.411.347.80'
+
+    const order = new Order(document, new Date(2020, 1, 1), 1)
+
+    expect(order.code.value).toBe('202000000001')
+  })
 })

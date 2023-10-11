@@ -1,17 +1,11 @@
-export class Coupon {
+export default class Coupon {
   constructor(
     readonly code: string,
     readonly percentage: number,
-    readonly expirationDate: Date,
-  ) {
-    if (!this.isValidCoupon()) throw new Error('Invalid coupon')
-  }
+    readonly expireDate: Date = new Date(),
+  ) {}
 
-  calculateDiscount(total: number) {
-    return (total * this.percentage) / 100
-  }
-
-  isValidCoupon() {
-    return this.expirationDate > new Date()
+  isExpired(today: Date) {
+    return today.getTime() > this.expireDate.getTime()
   }
 }
