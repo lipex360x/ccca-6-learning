@@ -7,5 +7,7 @@ describe('ItemRepositoryDatabase', () => {
     const itemRepository = new ItemRepositoryDatabase(connection)
     const items = await itemRepository.list()
     expect(items).toHaveLength(3)
+
+    await connection.close()
   })
 })

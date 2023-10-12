@@ -1,13 +1,17 @@
 import { PlaceOrder } from '@/application/PlaceOrder'
 import { Dimensions } from '@/domain/entity/Dimensions'
 import { Item } from '@/domain/entity/Item'
+import { PgPromiseConnectionAdapter } from '@/infra/database/PgPromiseConnectionAdapter'
+import { OrderRepositoryDatabase } from '@/infra/repositories/database/OrderRepositoryDatabase'
 import { ItemRepositoryMemory } from '@/infra/repositories/memory/ItemRepositoryMemory'
-import { OrderRepositoryMemory } from '@/infra/repositories/memory/OrderRepositoryMemory'
+// import { OrderRepositoryMemory } from '@/infra/repositories/memory/OrderRepositoryMemory'
 
 describe('PlaceOrder', () => {
   it('Deve fazer um pedido', async () => {
     const itemRepository = new ItemRepositoryMemory()
-    const orderRepository = new OrderRepositoryMemory()
+
+    const connection = new PgPromiseConnectionAdapter()
+    const orderRepository = new OrderRepositoryDatabase(connection)
 
     const placeOrder = new PlaceOrder(itemRepository, orderRepository)
 
@@ -31,5 +35,7 @@ describe('PlaceOrder', () => {
     const output = await placeOrder.execute(input)
 
     expect(output.total).toBe(6350)
+
+    await connection.close()
   })
 })

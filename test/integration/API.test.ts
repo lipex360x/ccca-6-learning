@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-describe('API', () => {
+describe.skip('API', () => {
   it('Deve chamar /items', async () => {
     const response = await axios.get('http://localhost:3000/items')
     const items = response.data

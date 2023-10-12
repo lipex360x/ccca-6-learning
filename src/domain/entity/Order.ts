@@ -2,29 +2,35 @@ import type { Coupon } from './Coupon'
 import Cpf from './Cpf'
 import { Freight } from './Freight'
 import type { Item } from './Item'
+import OrderCode from './OrderCode'
+import { OrderCoupon } from './OrderCoupon'
 import { OrderItem } from './OrderItem'
 
 export class Order {
-  private orderItems: OrderItem[] = []
-  private coupon?: Coupon
-  private freight = new Freight()
+  cpf: Cpf
+  orderItems: OrderItem[] = []
+  coupon?: OrderCoupon
+  freight = new Freight()
+  code: OrderCode
 
   constructor(
-    readonly document: string,
-    private readonly date: Date = new Date(),
+    cpf: string,
+    readonly date: Date = new Date(),
+    readonly sequence: number = 1,
   ) {
-    new Cpf(document)
+    this.cpf = new Cpf(cpf)
     this.orderItems = []
+    this.code = new OrderCode(date, sequence)
   }
 
   addItem(item: Item, quantity: number) {
     this.freight.addItem(item, quantity)
-
     this.orderItems.push(new OrderItem(item.idItem, item.price, quantity))
   }
 
   addCoupon(coupon: Coupon) {
-    if (!coupon.isExpired(this.date)) this.coupon = coupon
+    if (!coupon.isExpired(this.date))
+      this.coupon = new OrderCoupon(coupon.code, coupon.percentage)
   }
 
   getTotal() {
