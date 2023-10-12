@@ -1,6 +1,6 @@
 import type { Coupon } from './Coupon'
 import Cpf from './Cpf'
-import { Freight } from './Freight'
+import { Freight } from './FreightCalculator'
 import type { Item } from './Item'
 import OrderCode from './OrderCode'
 import { OrderCoupon } from './OrderCoupon'
