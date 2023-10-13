@@ -1,4 +1,4 @@
-import { GetOrders } from '@/application/GetOrders'
+import { GetOrder } from '@/application/GetOrder'
 import { PlaceOrder } from '@/application/PlaceOrder'
 import { Coupon } from '@/domain/entity/Coupon'
 import { Dimensions } from '@/domain/entity/Dimensions'
@@ -32,13 +32,7 @@ describe('GetOrders', () => {
     await connection.close()
   })
 
-  it('Deve obter uma lista vazia de pedidos', async () => {
-    const getOrders = new GetOrders(orderRepository)
-    const output = await getOrders.execute()
-    expect(output).toHaveLength(0)
-  })
-
-  it('Deve obter os pedidos cadastrados', async () => {
+  it('Deve obter um pedido pelo código', async () => {
     const placeOrder = new PlaceOrder(
       itemRepository,
       orderRepository,
@@ -66,16 +60,11 @@ describe('GetOrders', () => {
       coupon: 'VALE20',
     }
     await placeOrder.execute(input)
-    await placeOrder.execute(input)
 
-    const getOrders = new GetOrders(orderRepository)
-    const output = await getOrders.execute()
-    const [order1, order2] = output
+    const getOrder = new GetOrder(orderRepository)
+    const output = await getOrder.execute({ code: '202300000001' })
 
-    expect(output).toHaveLength(2)
-    expect(order1.code).toBe('202300000001')
-    expect(order1.total).toBe(5132)
-    expect(order2.code).toBe('202300000002')
-    expect(order2.total).toBe(5132)
+    expect(output.code).toBe('202300000001')
+    expect(output.total).toBe(5132)
   })
 })

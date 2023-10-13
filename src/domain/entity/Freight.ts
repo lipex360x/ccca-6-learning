@@ -1,7 +1,7 @@
 import type { Item } from './Item'
 
 export class Freight {
-  private total = 0
+  total = 0
   private DISTANCE = 1000
   private FACTOR = 100
   private MIN_FREIGHT = 10

@@ -34,6 +34,7 @@ export class PlaceOrder {
       order.addItem(item, orderItem.quantity)
       // freight += freightCalculator.calculate(item, orderItem.quantity)
     }
+
     if (input.coupon) {
       const coupon = await this.couponRepository.get(input.coupon)
       order.addCoupon(coupon)
