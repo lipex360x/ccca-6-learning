@@ -15,4 +15,16 @@ export class OrderRepositoryMemory implements OrderRepository {
   async count(): Promise<number> {
     return this.orders.length
   }
+
+  async list(): Promise<Order[]> {
+    return this.orders
+  }
+
+  async get(code: string): Promise<Order> {
+    return this.orders.find((order) => order.code.value === code)
+  }
+
+  async clear(): Promise<void> {
+    this.orders = []
+  }
 }

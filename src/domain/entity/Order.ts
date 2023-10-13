@@ -7,11 +7,11 @@ import { OrderCoupon } from './OrderCoupon'
 import { OrderItem } from './OrderItem'
 
 export class Order {
+  code: OrderCode
   cpf: Cpf
   orderItems: OrderItem[] = []
   coupon?: OrderCoupon
   freight = new Freight()
-  code: OrderCode
 
   constructor(
     cpf: string,

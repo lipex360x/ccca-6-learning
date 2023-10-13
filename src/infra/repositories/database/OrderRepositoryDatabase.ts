@@ -1,4 +1,4 @@
-import type { Order } from '@/domain/entity/Order'
+import { Order } from '@/domain/entity/Order'
 import type { OrderRepository } from '@/domain/repository/OrderRepository'
 import type { Connection } from '@/infra/database/Connection'
 
@@ -39,5 +39,39 @@ export class OrderRepositoryDatabase implements OrderRepository {
     )
 
     return row.count
+  }
+
+  async get(code: string): Promise<Order> {
+    const [orderData] = await this.connection.query(
+      'select * from orders where code = $1',
+      [code],
+    )
+    const order = new Order(
+      orderData.cpf,
+      new Date(orderData.issue_date),
+      orderData.sequence,
+    )
+
+    return order
+  }
+
+  async list(): Promise<Order[]> {
+    const orders: Order[] = []
+    const ordersData = await this.connection.query(
+      'select code from orders',
+      [],
+    )
+
+    for (const orderData of ordersData) {
+      const order = await this.get(orderData.code)
+      orders.push(order)
+    }
+
+    return orders
+  }
+
+  async clear(): Promise<void> {
+    await this.connection.query('delete from order_items', [])
+    await this.connection.query('delete from orders', [])
   }
 }

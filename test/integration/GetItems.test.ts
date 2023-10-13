@@ -1,13 +1,19 @@
 import { GetItems } from '@/application/GetItems'
 import { Dimensions } from '@/domain/entity/Dimensions'
 import { Item } from '@/domain/entity/Item'
+import type { ItemRepository } from '@/domain/repository/ItemRepository'
 import { ItemRepositoryMemory } from '@/infra/repositories/memory/ItemRepositoryMemory'
 
-describe('GetItems', () => {
-  it('Deve buscar os itens', async () => {
-    const itemRepository = new ItemRepositoryMemory()
-    const getItems = new GetItems(itemRepository)
+let itemRepository: ItemRepository
+let getItems: GetItems
 
+describe('GetItems', () => {
+  beforeEach(async () => {
+    itemRepository = new ItemRepositoryMemory()
+    getItems = new GetItems(itemRepository)
+  })
+
+  it('Deve buscar os itens', async () => {
     itemRepository.save(
       new Item(1, 'Guitarra', 1000, new Dimensions(100, 30, 10), 3),
     )

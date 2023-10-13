@@ -1,13 +1,19 @@
 import { SimulateFreight } from '@/application/SimulateFreight'
 import { Dimensions } from '@/domain/entity/Dimensions'
 import { Item } from '@/domain/entity/Item'
+import type { ItemRepository } from '@/domain/repository/ItemRepository'
 import { ItemRepositoryMemory } from '@/infra/repositories/memory/ItemRepositoryMemory'
 
-describe('SimulateFreight', () => {
-  it('Deve Simular o frete do pedido', async () => {
-    const itemRepository = new ItemRepositoryMemory()
-    const simulateFreight = new SimulateFreight(itemRepository)
+let itemRepository: ItemRepository
+let simulateFreight: SimulateFreight
 
+describe('SimulateFreight', () => {
+  beforeEach(() => {
+    itemRepository = new ItemRepositoryMemory()
+    simulateFreight = new SimulateFreight(itemRepository)
+  })
+
+  it('Deve Simular o frete do pedido', async () => {
     itemRepository.save(
       new Item(1, 'Guitarra', 1000, new Dimensions(100, 30, 10), 3),
     )
