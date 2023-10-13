@@ -62,7 +62,7 @@ describe('GetOrders', () => {
     await placeOrder.execute(input)
 
     const getOrder = new GetOrder(orderRepository)
-    const output = await getOrder.execute({ code: '202300000001' })
+    const output = await getOrder.execute('202300000001')
 
     expect(output.code).toBe('202300000001')
     expect(output.total).toBe(5132)

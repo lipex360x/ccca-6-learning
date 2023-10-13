@@ -11,9 +11,7 @@ export class ElysiaAdapter implements Http {
 
   on(method: string, url: string, callback: Function): void {
     this.app[method](url, async ({ params, body }) => {
-      const output = await callback(params, body)
-
-      return output
+      return callback(params, body)
     })
   }
 
