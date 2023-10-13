@@ -17,7 +17,7 @@ export class Item {
     return 0
   }
 
-  getDencity() {
+  getDensity() {
     if (this.dimension && this.weight) {
       return this.weight / this.dimension.getVolume()
     }

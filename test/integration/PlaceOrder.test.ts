@@ -3,6 +3,7 @@ import { Dimensions } from '@/domain/entity/Dimensions'
 import { Item } from '@/domain/entity/Item'
 import { PgPromiseConnectionAdapter } from '@/infra/database/PgPromiseConnectionAdapter'
 import { OrderRepositoryDatabase } from '@/infra/repositories/database/OrderRepositoryDatabase'
+import CouponRepositoryMemory from '@/infra/repositories/memory/CouponRepositoryMemory'
 import { ItemRepositoryMemory } from '@/infra/repositories/memory/ItemRepositoryMemory'
 // import { OrderRepositoryMemory } from '@/infra/repositories/memory/OrderRepositoryMemory'
 
@@ -12,8 +13,13 @@ describe('PlaceOrder', () => {
 
     const connection = new PgPromiseConnectionAdapter()
     const orderRepository = new OrderRepositoryDatabase(connection)
+    const couponRepository = new CouponRepositoryMemory()
 
-    const placeOrder = new PlaceOrder(itemRepository, orderRepository)
+    const placeOrder = new PlaceOrder(
+      itemRepository,
+      orderRepository,
+      couponRepository,
+    )
 
     itemRepository.save(
       new Item(1, 'Guitarra', 1000, new Dimensions(100, 30, 10), 3),

@@ -1,5 +1,5 @@
 import { Dimensions } from '@/domain/entity/Dimensions'
-import { Freight } from '@/domain/entity/FreightCalculator'
+import { Freight } from '@/domain/entity/Freight'
 import { Item } from '@/domain/entity/Item'
 
 describe('Freight', () => {

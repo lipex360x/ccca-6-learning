@@ -1,4 +1,4 @@
-import { Freight } from '@/domain/entity/FreightCalculator'
+import { Freight } from '@/domain/entity/Freight'
 import type { ItemRepository } from '@/domain/repository/ItemRepository'
 
 type InputDTO = {
