@@ -6,4 +6,10 @@ describe('Dimensions', () => {
     const volume = dimension.getVolume()
     expect(volume).toBe(0.03)
   })
+
+  it('Deve lançar uma exception se alguma dimensão for negativa', async () => {
+    expect(() => new Dimensions(-100, -30, -10)).toThrow(
+      new Error('Invalid dimension'),
+    )
+  })
 })

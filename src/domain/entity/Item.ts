@@ -7,7 +7,9 @@ export class Item {
     readonly price: number,
     readonly dimension?: Dimensions,
     readonly weight?: number,
-  ) {}
+  ) {
+    if (weight && weight < 0) throw new Error('Invalid weight')
+  }
 
   getVolume() {
     if (this.dimension) {

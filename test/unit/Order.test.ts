@@ -72,4 +72,15 @@ describe('Order', () => {
     expect(total).toBe(6350)
     expect(freight).toBe(260)
   })
+
+  it('Deve lançar uma exception se o pedido for criado com item repetido', () => {
+    const document = '935.411.347.80'
+
+    const order = new Order(document)
+
+    order.addItem(new Item(1, 'Guitarra', 1000), 1)
+    expect(() => order.addItem(new Item(1, 'Guitarra', 1000), 1)).toThrow(
+      new Error('Duplicated item'),
+    )
+  })
 })

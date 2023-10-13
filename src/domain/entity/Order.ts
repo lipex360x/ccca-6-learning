@@ -24,6 +24,7 @@ export class Order {
   }
 
   addItem(item: Item, quantity: number) {
+    if (this.isDuplicated(item)) throw new Error('Duplicated item')
     this.freight.addItem(item, quantity)
     this.orderItems.push(new OrderItem(item.idItem, item.price, quantity))
   }
@@ -48,5 +49,9 @@ export class Order {
 
   getFreight() {
     return this.freight.getTotal()
+  }
+
+  private isDuplicated(item: Item) {
+    return this.orderItems.some((orderItem) => orderItem.idItem === item.idItem)
   }
 }
