@@ -11,11 +11,27 @@ export class ItemRepositoryDatabase implements ItemRepository {
   }
 
   async save(item: Item): Promise<void> {
-    throw new Error('Method not implemented.')
+    const [itemData] = await this.connection.query(
+      'insert into public.items (category, description, price, width, height, length, weight) values ($1, $2, $3, $4, $5, $6, $7) returning *',
+      [
+        'category',
+        item.description,
+        item.price,
+        item.dimension.width,
+        item.dimension.height,
+        item.dimension.length,
+        item.weight,
+      ],
+    )
+
+    console.log(itemData)
   }
 
   async list(): Promise<Item[]> {
-    const itemsData = await this.connection.query('select * from items', [])
+    const itemsData = await this.connection.query(
+      'select * from public.items',
+      [],
+    )
     const items: Item[] = []
 
     for (const itemData of itemsData) {
