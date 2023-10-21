@@ -1,14 +1,20 @@
-import type { IButton } from './IButton'
+export class Button {
+  private color: string
+  private backgroundColor: string
 
-export class Button implements IButton {
-  backgroundColor: string
-  color = 'white'
-
-  constructor(readonly theme: string) {
-    this.backgroundColor = this.getBackgroundColor()
+  setColor(color: string) {
+    this.color = color
   }
 
-  private getBackgroundColor() {
-    return this.theme === 'light' ? 'blue' : 'black'
+  get getColor() {
+    return this.color
+  }
+
+  setBackgroundColor(color: string) {
+    this.backgroundColor = color
+  }
+
+  get getBackgroundColor() {
+    return this.backgroundColor
   }
 }

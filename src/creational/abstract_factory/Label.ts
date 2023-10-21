@@ -1,13 +1,11 @@
-import type { ILabel } from './ILabel'
+export class Label {
+  private color: string
 
-export class Label implements ILabel {
-  color: string
-
-  constructor(readonly theme: string) {
-    this.color = this.getColor()
+  setColor(color: string) {
+    this.color = color
   }
 
-  private getColor() {
-    return this.theme === 'light' ? 'black' : 'white'
+  get getColor() {
+    return this.color
   }
 }

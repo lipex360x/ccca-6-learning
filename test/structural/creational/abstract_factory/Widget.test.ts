@@ -1,17 +1,19 @@
+import { DarkWidgetFactory } from '@/creational/abstract_factory/DarkWidgetFactory'
+import { LightWidgetFactory } from '@/creational/abstract_factory/LightWidgetFactory'
 import { View } from '@/creational/abstract_factory/View'
 
 describe('Widget', () => {
   it('deve criar uma view com tema claro', async () => {
-    const view = new View('light')
-    expect(view.label.color).toBe('black')
-    expect(view.button.backgroundColor).toBe('blue')
-    expect(view.button.color).toBe('white')
+    const view = new View(new LightWidgetFactory())
+    expect(view.label.getColor).toBe('black')
+    expect(view.button.getBackgroundColor).toBe('blue')
+    expect(view.button.getColor).toBe('white')
   })
 
   it('deve criar uma view com tema escuro', async () => {
-    const view = new View('dark')
-    expect(view.label.color).toBe('white')
-    expect(view.button.backgroundColor).toBe('black')
-    expect(view.button.color).toBe('white')
+    const view = new View(new DarkWidgetFactory())
+    expect(view.label.getColor).toBe('white')
+    expect(view.button.getBackgroundColor).toBe('black')
+    expect(view.button.getColor).toBe('white')
   })
 })
