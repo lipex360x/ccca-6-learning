@@ -1,6 +1,6 @@
-import { DarkWidgetFactory } from '@/creational/abstract_factory/DarkWidgetFactory'
-import { LightWidgetFactory } from '@/creational/abstract_factory/LightWidgetFactory'
-import { View } from '@/creational/abstract_factory/View'
+import { DarkWidgetFactory } from '@/patterns/creational/abstract_factory/DarkWidgetFactory'
+import { LightWidgetFactory } from '@/patterns/creational/abstract_factory/LightWidgetFactory'
+import { View } from '@/patterns/creational/abstract_factory/View'
 
 describe('Widget', () => {
   it('deve criar uma view com tema claro', async () => {
